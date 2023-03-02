@@ -180,7 +180,6 @@ script = ExtResource( 2 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 62 )
 animation = "move"
-frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -203,3 +202,8 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
 position = Vector2( -4.5, -10 )
 shape = SubResource( 84 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Attack" to="." method="_on_Attack_body_entered"]
+[connection signal="timeout" from="Attack/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Above_and_Below" to="." method="_on_Above_and_Below_body_entered"]
